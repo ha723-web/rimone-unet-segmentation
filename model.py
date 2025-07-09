@@ -53,7 +53,9 @@ class UNet(nn.Module):
 
         self.final = nn.Conv2d(64, out_channels, kernel_size=1)
 
-    def forward(self, x):
+    
+#Forward Pass logic-(how the image processes throught U-Net)
+def forward(self, x):
 
         # The image is first downsampled by the encoder to extract deep features
         e1 = self.enc1(x)

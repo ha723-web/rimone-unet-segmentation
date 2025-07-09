@@ -27,6 +27,7 @@ class UNet(nn.Module):
                 nn.ReLU(inplace=True)
             )
         
+        # ENCODING 
         # zooming out to get a general understanding of the image.
         self.enc1 = conv_block(in_channels, 64)
         self.enc2 = conv_block(64, 128)
@@ -35,9 +36,11 @@ class UNet(nn.Module):
 
         self.pool = nn.MaxPool2d(2)
         
+        # BOTTLENECK
         # To extract the most compressed and powerful representation of the image.
         self.bottleneck = conv_block(512, 1024)
-        
+
+        # DECODING
         # zooming back in to recover the original image shape.
         self.up4 = nn.ConvTranspose2d(1024, 512, 2, stride=2)
         self.dec4 = conv_block(1024, 512)

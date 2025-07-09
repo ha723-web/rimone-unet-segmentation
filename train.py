@@ -3,7 +3,7 @@
 """
 This file uses the U-Net model from model.py and trains it using real data
 (images + masks) so it learns to segment optic disc and cup accurately.
-🔧 Think of this like assembling a self-driving car (model) and teaching it to recognize road boundaries (optic regions) by driving it around with labeled maps (masks).
+Think of this like assembling a self-driving car (model) and teaching it to recognize road boundaries (optic regions) by driving it around with labeled maps (masks).
 """
 
 # Importing required libraries
@@ -31,8 +31,8 @@ transform = transforms.Compose([
 dataset = FundusSegmentationDataset(image_dir, disc_mask_dir, cup_mask_dir, transform)
 
 # Debugging: Print sample size and few example image names
-print("🔍 Number of training samples found:", len(dataset))
-print("📂 Sample base names:", dataset.samples[:5])
+print("Number of training samples found:", len(dataset))
+print("Sample base names:", dataset.samples[:5])
 
 # Handle edge case: if no valid data found
 if len(dataset) == 0:
